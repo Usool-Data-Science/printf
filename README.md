@@ -1,4 +1,4 @@
-In this project, I (@Usool-Data-Science) and my partner (@etchiemcdonald) create a printf clone. The project is broken down into various parts including the following sections:
+In this project, I (@Usool-Data-Science and my partner (@etchiemcdonald) created a printf clone. The project is broken down into various parts including the following sections:
 
 Section 0: (A function that produces output according to a format)
 ==================================================================
@@ -17,6 +17,7 @@ Section 1: (Let the function handle the following identifies)
 =============================================================
 - d
 - i
+
 You don’t have to handle the flag characters
 You don’t have to handle field width
 You don’t have to handle precision
