@@ -71,7 +71,7 @@ int string_printer(va_list list_args, char buffer[],
 }
 /************************* PRINT PERCENT SIGN *************************/
 /**
- * print_percent - Prints a percent sign
+ * percent_printer - Prints a percent sign
  * @list_args: Lista of arguments
  * @flg:  Compute active flg
  * @buffer: Character buffer array to temporarily store chars.
@@ -80,7 +80,7 @@ int string_printer(va_list list_args, char buffer[],
  * @size: Specifier for size.
  * Return: The total number of chars printed
  */
-int print_percent(va_list list_args, char buffer[],
+int percent_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
 	UNUSED(list_args);
@@ -94,7 +94,7 @@ int print_percent(va_list list_args, char buffer[],
 
 /************************* PRINT INT *************************/
 /**
- * print_int - Print int
+ * int_printer - Print int
  * @list_args: Lista of arguments
  * @buffer: Character buffer array to temporarily store chars.
  * @flg:  Compute active flg
@@ -103,20 +103,20 @@ int print_percent(va_list list_args, char buffer[],
  * @size: Specifier for size.
  * Return: The total number of chars printed
  */
-int print_int(va_list list_args, char buffer[],
+int int_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	int is_negative = 0;
 	long int n = va_arg(list_args, long int);
 	unsigned long int num;
 
-	n = convert_size_number(n, size);
+	n = num_size_converter(n, size);
 
 	if (n == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
 
 	if (n < 0)
@@ -133,12 +133,12 @@ int print_int(va_list list_args, char buffer[],
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, flg, width, precs, size));
+	return (number_writer(is_negative, i, buffer, flg, width, precs, size));
 }
 
 /************************* PRINT BINARY *************************/
 /**
- * print_binary - Prints an unsigned number
+ * binary_printer - Prints an unsigned number
  * @list_args: Lista of arguments
  * @buffer: Character buffer array to temporarily store chars.
  * @flg:  Compute active flg
@@ -147,7 +147,7 @@ int print_int(va_list list_args, char buffer[],
  * @size: Specifier for size.
  * Return: The total number of chars printed
  */
-int print_binary(va_list list_args, char buffer[],
+int binary_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
 	unsigned int n, m, i, sum;

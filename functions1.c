@@ -14,7 +14,7 @@
 int unsigned_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(list_args, unsigned long int);
 
 	num = unsigned_size_converter(num, size);
@@ -22,7 +22,7 @@ int unsigned_printer(va_list list_args, char buffer[],
 	if (num == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 
 	while (num > 0)
 	{
@@ -50,7 +50,7 @@ int octal_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
 
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(list_args, unsigned long int);
 	unsigned long int init_num = num;
 
@@ -61,7 +61,7 @@ int octal_printer(va_list list_args, char buffer[],
 	if (num == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 
 	while (num > 0)
 	{
@@ -129,7 +129,7 @@ int upper_hexa_printer(va_list list_args, char buffer[],
 int hexadecimal_printer(va_list list_args, char map_to[], char buffer[],
 	int flg, char flag_ch, int width, int precs, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(list_args, unsigned long int);
 	unsigned long int init_num = num;
 
@@ -140,7 +140,7 @@ int hexadecimal_printer(va_list list_args, char map_to[], char buffer[],
 	if (num == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 
 	while (num > 0)
 	{

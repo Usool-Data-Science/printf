@@ -8,7 +8,7 @@
 #define BUFFER_SIZE 1024
 
 /* FLAGS */
-#define FLAG_SPACE 16
+#define F_SPACE 16
 #define F_HASH 8
 #define F_ZERO 4
 #define F_PLUS 2
@@ -43,6 +43,7 @@ int _printf(const char *format, ...);
 int print_handler(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
+int upper_hexa_printer(va_list list_args, char buffer[], int flg, int width, int precs, int size);
 /*================= FUNCTIONS ===================================*/
 
 /* Funtions to print chars and strings */
@@ -67,7 +68,7 @@ int hexa_printer(va_list types, char buffer[],
 int hexa_upper_printer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-int print_hexa(va_list types, char map_to[],
+int hexadecimal_printer(va_list types, char map_to[],
 char buffer[], int flags, char flag_ch, int width, int precision, int size);
 
 /* Function to print non printable characters */
@@ -108,7 +109,7 @@ char buffer[],
 
 /*==================== UTILS ==============================**/
 int is_printable(char);
-int append_hexa_code(char, char[], int);
+int hexa_appender(char, char[], int);
 int is_digit(char);
 
 long int num_size_converter(long int num, int size);

@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * prcs_getter - Calculates the prcs for printing
+ * precision_getter - Calculates the prcs for printing
  * @format: Formatted string in which to print the arguments
  * @i: List of arguments to be printed.
  * @arg_lists: arg_lists of arguments.
  *
  * Return: Precision.
  */
-int prcs_getter(const char *format, int *i, va_arg_lists arg_lists)
+int precision_getter(const char *format, int *i, va_list arg_lists)
 {
 	int curr_i = *i + 1;
 	int prcs = -1;

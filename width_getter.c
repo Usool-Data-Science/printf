@@ -8,7 +8,7 @@
  *
  * Return: width.
  */
-int width_getter(const char *format, int *i, va_args_list args_list)
+int width_getter(const char *format, int *i, va_list args_list)
 {
 	int curr_i;
 	int width = 0;

@@ -15,7 +15,7 @@ int pointer_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
 	char extra_c = 0, padd = ' ';
-	int ind = BUFF_SIZE - 2, len = 2, padd_start = 1; /* len=2, for '0x' */
+	int ind = BUFFER_SIZE - 2, len = 2, padd_start = 1; /* len=2, for '0x' */
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
 	void *addrs = va_arg(list_args, void *);
@@ -25,7 +25,7 @@ int pointer_printer(va_list list_args, char buffer[],
 	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	UNUSED(precs);
 
 	num_addrs = (unsigned long)addrs;
@@ -46,7 +46,7 @@ int pointer_printer(va_list list_args, char buffer[],
 
 	ind++;
 
-	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
+	/*return (write(1, &buffer[i], BUFFER_SIZE - i - 1));*/
 	return (pointer_writer(buffer, ind, len,
 		width, flg, padd, extra_c, padd_start));
 }
@@ -81,7 +81,7 @@ int non_printable_printer(va_list list_args, char buffer[],
 		if (is_printable(str[i]))
 			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_code(str[i], buffer, i + offset);
+			offset += hexa_appender(str[i], buffer, i + offset);
 
 		i++;
 	}
@@ -93,7 +93,7 @@ int non_printable_printer(va_list list_args, char buffer[],
 
 /* === A FUNCTION THAT PRINTS IN REVERSE ======== */
 /**
- * print_reverse - Prints reverse string.
+ * reverse_printer - Prints reverse string.
  * @list_args: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flg:  Calculates active flg
@@ -103,7 +103,7 @@ int non_printable_printer(va_list list_args, char buffer[],
  * Return: Numbers of chars printed
  */
 
-int print_reverse(va_list list_args, char buffer[],
+int reverse_printer(va_list list_args, char buffer[],
 	int flg, int width, int precs, int size)
 {
 	char *str;
