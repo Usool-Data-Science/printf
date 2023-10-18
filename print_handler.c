@@ -16,7 +16,14 @@ int print_handler(const char *fmt, int *ind, va_list args_list, char buffer[],
 {
 	int i, unknow_len = 0, printed_chars = -1;
 
-	fmt_t fmt_types[] = {{'c', char_printer}, {'s', string_printer}, {'%', percent_printer}, {'i', int_printer}, {'d', int_printer}, {'b', binary_printer}, {'u', unsigned_printer}, {'o', octal_printer}, {'x', hexa_printer}, {'X', upper_hexa_printer}, {'p', pointer_printer}, {'S', non_printable_printer}, {'r', reverse_printer}, {'R', rot13string_printer}, {'\0', NULL}};
+	fmt_t fmt_types[] = {{'c', char_printer}, {'s', string_printer},
+		{'%', percent_printer}, {'i', int_printer},
+		{'d', int_printer}, {'b', binary_printer},
+		{'u', unsigned_printer}, {'o', octal_printer},
+		{'x', hexa_printer}, {'X', upper_hexa_printer},
+		{'p', pointer_printer}, {'S', non_printable_printer},
+		{'r', reverse_printer}, {'R', rot13string_printer},
+		{'\0', NULL}};
 
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
 		if (fmt[*ind] == fmt_types[i].fmt)

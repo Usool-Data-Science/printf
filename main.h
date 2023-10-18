@@ -43,7 +43,8 @@ int _printf(const char *format, ...);
 int print_handler(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
-int upper_hexa_printer(va_list list_args, char buffer[], int flg, int width, int precs, int size);
+int upper_hexa_printer(va_list list_args, char buffer[],
+		int flg, int width, int precs, int size);
 /*================= FUNCTIONS ===================================*/
 
 /* Funtions to print chars and strings */
@@ -76,8 +77,8 @@ int non_printable_printer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Funcion to print memory address */
-int pointer_printer(va_list types, char buffer[],
-	int flags, int width, int precision, int size);
+int pointer_printer(va_list types, char buffer[], int flags,
+		int width, int precision, int size);
 
 /* Funciotns to handle other specifiers */
 int flag_getter(const char *format, int *i);
@@ -97,15 +98,13 @@ int rot13string_printer(va_list types, char buffer[],
 int write_char_handler(char c, char buffer[],
 	int flags, int width, int precision, int size);
 int number_writer(int is_positive, int ind, char buffer[],
-	int flags, int width, int precision, int size);
-int num_writer(int ind, char bff[], int flags, int width, int precision,
-	int length, char padd, char extra_c);
+		int flags, int width, int precision, int size);
+int num_writer(int ind, char bff[], int flags, int width,
+		int precision, int length, char padd, char extra_c);
 int pointer_writer(char buffer[], int ind, int length,
-	int width, int flags, char padd, char extra_c, int padd_start);
-
-int unsigned_writer(int is_negative, int ind,
-char buffer[],
-	int flags, int width, int precision, int size);
+		int width, int flags, char padd, char extra_c, int padd_start);
+int unsigned_writer(int is_negative, int ind, char buffer[],
+		int flags, int width, int precision, int size);
 
 /*==================== UTILS ==============================**/
 int is_printable(char);
