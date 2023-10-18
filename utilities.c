@@ -40,12 +40,12 @@ int hexa_appender(char ascii, char buffer[], int i)
 }
 
 /**
- * is_digit - A function that checks if a char is a digit
+ * is_numeric - A function that checks if a char is a digit
  * @c: The character to be evaluated
  *
  * Return: 1 means that C is a digit, 0 means that it is not
  */
-int is_digit(char c)
+int is_numeric(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
